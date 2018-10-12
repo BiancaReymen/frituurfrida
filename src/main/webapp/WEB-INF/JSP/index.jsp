@@ -7,10 +7,11 @@
 <meta name='viewport' content='width=device-width,initial-scale=1'>
 <link rel='stylesheet' href='css/frituurfrida.css'>
 </head>
+<img src="images/${OpenGesloten}.png" alt="{OpenGesloten}">
 <body>
 	<h1>Frituur Frida</h1>
-	<h2>${boodschap}</h2>
-</body>
+	<h2>${OpenGesloten}</h2>
+	</body>
 </html>
 
 

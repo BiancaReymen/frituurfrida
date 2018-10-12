@@ -13,13 +13,13 @@ import org.springframework.web.servlet.ModelAndView;
 class IndexController {
 	@GetMapping
 	ModelAndView index() {
-		String boodschap;
+		String OpenGesloten;
 		String dag = LocalDate.now().getDayOfWeek().name();
 		if (dag == "MONDAY" | dag == "THURSDAY") {
-			boodschap = "Gesloten";
+			OpenGesloten = "gesloten";
 		} else {
-			boodschap = "Open";
+			OpenGesloten = "open";
 		}
-		return new ModelAndView ("index", "boodschap", boodschap);
+		return new ModelAndView ("index", "OpenGesloten", OpenGesloten);
 	}
 }
