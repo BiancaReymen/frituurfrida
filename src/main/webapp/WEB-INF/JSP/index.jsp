@@ -10,7 +10,11 @@
 <img src="images/${OpenGesloten}.png" alt="{OpenGesloten}">
 <body>
 	<h1>Frituur Frida</h1>
-	<h2>${OpenGesloten}</h2>
+	<dl>
+	<dt>Adres: </dt>
+			<dd>${adres.straat} ${adres.huisNr} <br>
+			    ${adres.gemeente.postCode} ${adres.gemeente.naam}</dd>
+	</dl>
 	</body>
 </html>
 

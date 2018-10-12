@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import be.vdab.frituurfrida.valueobjects.Adres;
+import be.vdab.frituurfrida.valueobjects.Gemeente;
+
 @Controller
 @RequestMapping("/")
 
@@ -20,6 +23,7 @@ class IndexController {
 		} else {
 			OpenGesloten = "open";
 		}
-		return new ModelAndView ("index", "OpenGesloten", OpenGesloten);
+		return new ModelAndView ("index", "OpenGesloten", OpenGesloten)
+				.addObject("adres", new Adres("Waterstraat", "2" , new Gemeente("Genk",3600)));
 	}
 }
