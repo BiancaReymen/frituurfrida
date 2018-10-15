@@ -10,6 +10,9 @@
 <img src="images/${OpenGesloten}.png" alt="{OpenGesloten}">
 <body>
 	<h1>Frituur Frida</h1>
+	<c:if test = "${reedsBezocht}">
+		<h2>Welkom terug</h2>
+	</c:if>
 	<dl>
 	<dt>Adres: </dt>
 			<dd>${adres.straat} ${adres.huisNr} <br>
