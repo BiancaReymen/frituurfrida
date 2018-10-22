@@ -7,14 +7,24 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.web.servlet.ModelAndView;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
 
+import static org.mockito.Mockito.*;
+
+import be.vdab.frituurfrida.services.SausService;
+
+@RunWith(MockitoJUnitRunner.class)
 public class SausControllerTest {
 
+	@Mock
+	private SausService sausService;
 	private SausController controller;
+	
 	@Before
 	public void before() {
-		controller = new SausController();
+		controller = new SausController(sausService);
 	}
 	@Test
 	public void sauzenWerktSamenMetDeJspSaus() {
@@ -23,6 +33,11 @@ public class SausControllerTest {
 	@Test
 	public void sauzenGeeftSauzenDoor() {
 		assertTrue(controller.sauzen().getModel().get("sauzen") instanceof List);
+	}
+	@Test
+	public void sauzenGeeftJuisteDataAanJSP() {
+		assertTrue(controller.sauzen().getModel().containsKey("sauzen"));
+		verify(sausService).findAll();
 	}
 
 }

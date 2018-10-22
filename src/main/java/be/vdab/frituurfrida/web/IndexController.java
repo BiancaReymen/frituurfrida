@@ -22,7 +22,7 @@ import be.vdab.frituurfrida.valueobjects.Gemeente;
 class IndexController {
 	@GetMapping
 	ModelAndView index(@CookieValue(name = "reedsBezocht", required = false)
-	 boolean reedsBezocht, HttpServletResponse response) {
+	 String reedsBezocht, HttpServletResponse response) {
 		LocalDate vandaag = LocalDate.now();
 		DayOfWeek weekdag = vandaag.getDayOfWeek();
 		String openGesloten = weekdag == DayOfWeek.MONDAY || weekdag == DayOfWeek.THURSDAY ? "gesloten" : "open";
@@ -32,7 +32,7 @@ class IndexController {
 		response.addCookie(cookie);
 		ModelAndView  modelAndView = new ModelAndView("index", "OpenGesloten", openGesloten)
 				.addObject("adres", new Adres("Waterstraat", "2" , new Gemeente("Genk",3600)));
-		if (reedsBezocht == true) {
+		if (reedsBezocht != null) {
 			modelAndView.addObject("reedsBezocht", true);
 		}
 	
