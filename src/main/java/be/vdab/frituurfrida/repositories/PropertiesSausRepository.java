@@ -17,12 +17,12 @@ import be.vdab.frituurfrida.exceptions.SausRepositoryException;
 import be.vdab.frituurfrida.valueobjects.Saus;
 
 @Component
-@Qualifier("CSV")
-class CSVSausRepository implements SausRepository {
+@Qualifier("properties")
+public class PropertiesSausRepository implements SausRepository {
+
+	private static final Path PAD = Paths.get("/data/sauzen.properties");
+	private static final Logger LOGGER = LoggerFactory.getLogger(PropertiesSausRepository.class);
 	
-	private static final Path PAD = Paths.get("/data/sauzen.csv");
-	private static final Logger LOGGER = LoggerFactory.getLogger(CSVSausRepository.class);
-				
 	@Override
 	public List<Saus> findAll() {
 		List<Saus> sauzen = new ArrayList<>();
@@ -41,7 +41,7 @@ class CSVSausRepository implements SausRepository {
 		return sauzen;
 	}
 	private Saus maakSaus(String regel) {
-		String[] onderdelen = regel.split(",");
+		String[] onderdelen = regel.split(":");
 		if (onderdelen.length < 2) {
 			String fout = PAD + ":" + regel + " bevat minder dan 2 onderdelen";
 			LOGGER.error(fout);
@@ -49,9 +49,10 @@ class CSVSausRepository implements SausRepository {
 			
 		}
 		try {
-			Saus saus = new Saus(Long.parseLong(onderdelen[0]), onderdelen[1]);
-			for (int index = 2; index < onderdelen.length; index++) {
-				saus.addIngredienten(onderdelen[index]);
+			String[] onderdelen2 = onderdelen[1].split(",");
+			Saus saus = new Saus(Long.parseLong(onderdelen[0]), onderdelen2[0]);
+			for (int index = 2; index < onderdelen2.length; index++) {
+				saus.addIngredienten(onderdelen2[index]);
 			}
 		
 			return saus;
@@ -62,4 +63,4 @@ class CSVSausRepository implements SausRepository {
 		}
 
 	}
-}	
+}
