@@ -47,6 +47,6 @@ class JdbcSnackRepository implements SnackRepository {
 	private static final String SELECT_BY_BEGIN_LETTER = "select id, naam, prijs from snacks where naam like ?";
 	@Override
 	public List<Snack> findByBeginNaam(String beginNaam){
-		return template.query(SELECT_BY_BEGIN_LETTER, snackRowMapper, beginNaam+"%");
+		return template.query(SELECT_BY_BEGIN_LETTER, snackRowMapper, beginNaam+'%');
 	}
 }
