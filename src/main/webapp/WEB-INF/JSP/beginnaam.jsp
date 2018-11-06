@@ -17,7 +17,7 @@
 		<form:label path='beginnaam'>Begin naam: 
 	  		<form:errors path='beginnaam' />
 		</form:label>
-		<form:input path='beginnaam' autofocus='autofocus' />
+		<form:input path='beginnaam' autofocus='autofocus' type='text' required='required' />
 			<input type='submit' value='Zoeken'>
 		<form:errors />
 	</form:form>
