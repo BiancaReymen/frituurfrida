@@ -2,14 +2,14 @@
 <%@taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core'%>
 <%@taglib prefix='spring' uri='http://www.springframework.org/tags'%>
 <%@taglib prefix='form' uri='http://www.springframework.org/tags/form'%>
+<%@taglib prefix='vdab' uri='http://vdab.be/tags'%>
 <!doctype html>
 <html lang='nl'>
 <head>
-<c:import url='/WEB-INF/JSP/head.jsp'>
-	<c:param name='title' value='${snack.naam} wijzigen' />
-</c:import>
+<vdab:head title="snack wijzigen"/>
 </head>
 <body>
+<vdab:menu/>
 	<h1>${snack.naam} wijzigen</h1>
 	<spring:url value='/snacks/{id}/wijzigen' var='url'>
 		<spring:param name='id' value='${snack.id}' />
