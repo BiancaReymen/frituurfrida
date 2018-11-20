@@ -43,4 +43,9 @@ class JdbcGastenboekRepository implements GastenboekRepository {
 		return template.query(SQL_SELECT_ALL, entryRowMapper);
 		
 	}
+	private static final String SQL_DELETE = "delete from gastenboek where id=?";
+	@Override
+	public void delete(long id) {
+		template.update(SQL_DELETE, id);
+	}
 }

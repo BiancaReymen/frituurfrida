@@ -1,3 +1,17 @@
+body {
+background-color: #C0BD92;
+font-family: sans-serif;
+}
+h1 {
+color: red;
+}
+nav ul {
+list-style:none;
+padding:0;
+}
+nav ul li {
+display:inline;
+}
 label span {
 	background-color: red;
 	border-bottom-right-radius: 0.5em;

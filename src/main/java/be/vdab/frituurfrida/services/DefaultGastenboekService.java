@@ -1,5 +1,6 @@
 package be.vdab.frituurfrida.services;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -20,12 +21,16 @@ class DefaultGastenboekService implements GastenboekService {
 	@Override
 	@Transactional(readOnly = false, isolation = Isolation.READ_COMMITTED)
 	public void create(GastenboekEntry entry) {
-		System.out.print("in create");
 		gastenboekRepository.create(entry);
 	}
 	@Override
 	public List<GastenboekEntry> findAll() {
 		return gastenboekRepository.findAll();
+	}
+	@Override
+	@Transactional(readOnly = false, isolation = Isolation.READ_COMMITTED)
+	public void delete(long[] ids) {
+		Arrays.stream(ids).forEach(id -> gastenboekRepository.delete(id));
 	}
 
 }

@@ -8,5 +8,6 @@ public interface GastenboekService {
 	
 	void create(GastenboekEntry entry);
 	List<GastenboekEntry> findAll();
+	void delete(long[] ids);
 
 }

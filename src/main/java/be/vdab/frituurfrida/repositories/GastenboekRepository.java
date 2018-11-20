@@ -8,5 +8,6 @@ public interface GastenboekRepository {
 	
 	void create(GastenboekEntry entry);
 	List<GastenboekEntry> findAll();
+	void delete(long id);
 
 }

@@ -41,5 +41,13 @@ public class GastenboekController {
 		return new ModelAndView(REDIRECT_NA_CREATE);
 	
 	}
-	
+	private static final String REDIRECT_NA_DELETE = "redirect:/gastenboek";
+	@PostMapping(path="verwijderen", params = "verwijderid")
+	String delete(long[] verwijderid) {
+		System.out.print("in postmapping verwijderd");
+		if (verwijderid != null) {
+			gastenboekService.delete(verwijderid);
+		}
+		return REDIRECT_NA_DELETE;
+	}
 }

@@ -48,5 +48,16 @@ public class JdbcGastenboekRepositoryTest extends AbstractTransactionalJUnit4Spr
 			vorige = entry.getDatumtijd();
 		}
 	}
+	private long idVanTestEntry() {
+		return super.jdbcTemplate.queryForObject("select id from gastenboek where naam = 'test'", Long.class);
+	}
+	@Test
+	public void delete() {
+		long id = idVanTestEntry();
+		int aantalEntries = super.countRowsInTable(GASTENBOEK);
+		repository.delete(id);
+		assertEquals(aantalEntries - 1, super.countRowsInTable(GASTENBOEK));
+		assertEquals(0, super.countRowsInTableWhere(GASTENBOEK, "id=" + id));
+	}
 
 }
