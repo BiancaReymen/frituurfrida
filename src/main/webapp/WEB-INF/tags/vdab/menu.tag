@@ -11,6 +11,7 @@
 			<li><a href="<c:url value='/voorkeurtaal'/>">Voorkeurtaal</a></li>
 			<li><a href="<c:url value='/snacks/alfabet'/>">Identificatie</a></li>
 			<li><a href="<c:url value='/frieten/zoekdefriet'/>">Zoek de friet</a></li>
+			<li><a href="<c:url value='/gastenboek'/>">Gastenboek</a></li>
 		</ul>
 	</nav>
 </header>

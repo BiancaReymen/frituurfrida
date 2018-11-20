@@ -1,0 +1,1 @@
+insert into gastenboek(naam,datumtijd,bericht) values('test', '2018-11-20 10:00', 'test');
